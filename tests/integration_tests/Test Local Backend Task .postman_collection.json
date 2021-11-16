@@ -1,0 +1,841 @@
+{
+	"info": {
+		"_postman_id": "6e535ddd-b23e-4ba1-bbf3-0708b40140a9",
+		"name": "Test Local Backend Task ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Signup User 1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let date = Date.now();",
+							"let email = \"User\"+ date + \"@gmail.com\";",
+							"pm.environment.set(\"Email User 1\", email);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('has an id', function(){",
+							"    const data = pm.response.json();",
+							"    return \"id\" in data",
+							"}",
+							");",
+							"",
+							"pm.test('signed up correctly', function(){",
+							"    pm.response.to.have.status(200)",
+							"}",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"email\": \"{{Email User 1}}\",\n    \"password\": \"password\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/auth/signup",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('has a token', function(){",
+							"    const data = pm.response.json();",
+							"    pm.environment.set(\"token User 1\", data.token)",
+							"    return \"token\" in data",
+							"}",
+							");",
+							"",
+							"pm.test('logged in correctly', function(){",
+							"    pm.response.to.have.status(200)",
+							"}",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"email\": \"{{Email User 1}}\",\n    \"password\": \"password\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/auth/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signup User 2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let date = Date.now();",
+							"let email = \"User\"+ date + \"@gmail.com\";",
+							"pm.environment.set(\"Email User 2\", email);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('has an id', function(){",
+							"    const data = pm.response.json();",
+							"    return \"id\" in data",
+							"}",
+							");",
+							"",
+							"pm.test('signed up correctly', function(){",
+							"    pm.response.to.have.status(200)",
+							"}",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"email\": \"{{Email User 2}}\",\n    \"password\": \"password\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/auth/signup",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('has a token', function(){",
+							"    const data = pm.response.json();",
+							"    pm.environment.set(\"token User 2\", data.token)",
+							"    return \"token\" in data",
+							"}",
+							");",
+							"",
+							"pm.test('logged in correctly', function(){",
+							"    pm.response.to.have.status(200)",
+							"}",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"email\": \"{{Email User 2}}\",\n    \"password\": \"password\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/auth/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User 1 creates Model 1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let date = Date.now();",
+							"let modelname = \"Model\"+ date;",
+							"pm.environment.set(\"Model1User1Name\", modelname);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('has an id', function(){",
+							"    const data = pm.response.json();",
+							"    pm.environment.set(\"Id_user1_model1\", data.id)",
+							"    return \"id\" in data",
+							"}",
+							");",
+							"",
+							"pm.test('signed up correctly', function(){",
+							"    pm.response.to.have.status(200)",
+							"}",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token User 1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{Model1User1Name}}\",\n    \"input_var_names\": [\"var1\", \"var2\", \"var3\"],\n    \"model_parameter\": [1,2,3]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/edit_models",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"edit_models"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User 1 creates Model 2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let date = Date.now();",
+							"let modelname = \"Model\"+ date;",
+							"pm.environment.set(\"Model2User1Name\", modelname);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('has an id', function(){",
+							"    const data = pm.response.json();",
+							"    pm.environment.set(\"Id_user1_model2\", data.id)",
+							"    return \"id\" in data",
+							"}",
+							");",
+							"",
+							"pm.test('signed up correctly', function(){",
+							"    pm.response.to.have.status(200)",
+							"}",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token User 1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{Model2User1Name}}\",\n    \"input_var_names\": [\"var1\", \"var2\", \"var3\", \"var4\"],\n    \"model_parameter\": [2,4,6,8]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/edit_models",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"edit_models"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User 2 creates Model 1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let date = Date.now();",
+							"let modelname = \"Model\"+ date;",
+							"pm.environment.set(\"Model1User2Name\", modelname);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('has an id', function(){",
+							"    const data = pm.response.json();",
+							"    pm.environment.set(\"Id_user2_model1\", data.id)",
+							"    return \"id\" in data",
+							"}",
+							");",
+							"",
+							"pm.test('signed up correctly', function(){",
+							"    pm.response.to.have.status(200)",
+							"}",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token User 2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{Model1User2Name}}\",\n    \"input_var_names\": [\"var1\", \"var2\", \"var3\"],\n    \"model_parameter\": [1,2,3]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/edit_models",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"edit_models"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User 2 creates Model 2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let date = Date.now();",
+							"let modelname = \"Model\"+ date;",
+							"pm.environment.set(\"Model2User2Name\", modelname);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('has an id', function(){",
+							"    const data = pm.response.json();",
+							"    pm.environment.set(\"Id_user2_model2\", data.id)",
+							"    return \"id\" in data",
+							"}",
+							");",
+							"",
+							"pm.test('signed up correctly', function(){",
+							"    pm.response.to.have.status(200)",
+							"}",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token User 2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{Model2User2Name}}\",\n    \"input_var_names\": [\"var1\", \"var2\", \"var3\", \"var4\"],\n    \"model_parameter\": [2.5,4.5,6.5,8.5]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/edit_models",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"edit_models"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User 1 only gets his models",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('User 1 has Model 1', function(){",
+							"    const data = pm.response.json();",
+							"    pm.expect(data).to.be.an(\"array\")",
+							"    pm.expect(pm.response.text()).to.include(pm.variables.get(\"Model1User1Name\"));",
+							"}",
+							");",
+							"",
+							"pm.test('User 1 has Model 2', function(){",
+							"    const data = pm.response.json();",
+							"    pm.expect(data).to.be.an(\"array\")",
+							"    pm.expect(pm.response.text()).to.include(pm.variables.get(\"Model2User1Name\"));",
+							"}",
+							");",
+							"",
+							"pm.test('User 1 has not no access to Model 1 of User 2', function(){",
+							"    const data = pm.response.json();",
+							"    pm.expect(data).to.be.an(\"array\")",
+							"    pm.expect(pm.response.text()).to.not.include(pm.variables.get(\"Model1User2Name\"));",
+							"}",
+							");",
+							"",
+							"pm.test('User 1 has not no access to Model 2 of User 2', function(){",
+							"    const data = pm.response.json();",
+							"    pm.expect(data).to.be.an(\"array\")",
+							"    pm.expect(pm.response.text()).to.not.include(pm.variables.get(\"Model2User2Name\"));",
+							"}",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token User 1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/edit_models",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"edit_models"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User 2 only gets his models",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('User 1 has Model 1', function(){",
+							"    const data = pm.response.json();",
+							"    return \"{{Model1User1Name}}\" in data",
+							"}",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token User 1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/edit_models",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"edit_models"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User 1 executes his model 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('check execution model 1 user 1', function(){",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.output).to.eql(14)",
+							"}",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token User 1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"model_parameter\": [1,2,3]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/execute_model/{{Id_user1_model1}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"execute_model",
+						"{{Id_user1_model1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User 1 executes his model 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('check execution model 1 user 1', function(){",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.output).to.eql(20)",
+							"}",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token User 1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"model_parameter\": [1,1,1,1]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/execute_model/{{Id_user1_model2}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"execute_model",
+						"{{Id_user1_model2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User 2 executes his model 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('check execution model 1 user 1', function(){",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.output).to.eql(6)",
+							"}",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token User 2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"model_parameter\": [1,1,1]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/execute_model/{{Id_user2_model1}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"execute_model",
+						"{{Id_user2_model1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User 2 executes his model 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('check execution model 1 user 1', function(){",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.output).to.eql(22)",
+							"}",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token User 2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"model_parameter\": [1,1,1,1]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/execute_model/{{Id_user2_model2}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"execute_model",
+						"{{Id_user2_model2}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
