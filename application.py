@@ -12,6 +12,10 @@ app.config.from_envvar('ENV_FILE_LOCATION')
 app.config.from_json("config")
 mail = Mail(app)
 
+@app.route("/")
+def home_view():
+        return "<h1>Welcome to Christian's backend task</h1>"
+
 from resources.routes import initialize_routes
 
 api = Api(app, errors=errors)
