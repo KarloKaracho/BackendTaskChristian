@@ -1,0 +1,9 @@
+{
+  "JWT_SECRET_KEY": "super-secret",
+  "MAIL_SERVER" : "localhost",
+  "MAIL_PORT" : "1025",
+  "MAIL_USERNAME": "support@backendtask.com",
+  "MAIL_PASSWORD": "",
+  "MONGODB_URI": "mongodb+srv://christian:28SxjK$zVX.hmx*@cluster0.ugs91.mongodb.net/backend-task-christian?retryWrites=true&w=majority",
+  "MONG_DBNAME": "backend-task-christian"
+}
